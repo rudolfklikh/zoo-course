@@ -46,8 +46,6 @@ export abstract class BaseFormComponent<T extends { [key: string]: any }>  {
   }
 
   clearForm(): void {
-    console.log('clearForm baseComponent');
-
     this.form.markAsUntouched();
     this.form.reset();
 
