@@ -1,0 +1,155 @@
+@use 'flex';
+@use 'button';
+
+:host {
+    @include flex.zoo-flex(column, center, center);
+
+    height: 100%;
+    width: 100%;
+}
+
+.auth {
+    $sectionHeight: 550px;
+    $secionWidth: 990px;
+    $transitionTime: 0.5s;
+
+    min-height: $sectionHeight;
+    min-width: $secionWidth;
+    position: relative;
+
+
+    background-color: var(--zoo-gray-min);
+    box-shadow: var(--shadow-default-1);
+    overflow: hidden;
+
+    &__container {
+        height: 100%;
+
+        position: absolute;
+        top: 0;
+        transition: all $transitionTime ease-in-out;
+    }
+
+    .sign-in-container {
+        width: 50%;
+        left: 0;
+        opacity: 1;
+        z-index: 1;
+    }
+
+    .sign-up-container {
+        width: 50%;
+        right: 0;
+        opacity: 0;
+        z-index: 1;
+    }
+
+    .overlay {
+        height: 100%;
+        width: 50%;
+
+        position: absolute;
+        top: 0;
+        left: 50%;
+
+        z-index: 2;
+        overflow: hidden;
+        transition: all $transitionTime ease-in-out;
+
+        &__container {
+            height: 100%;
+            width: 200%;
+            position: relative;
+
+            left: -100%;
+            color: var(--zoo-primary-100);
+            background-color: var(--zoo-system-blue-900);
+            transform: translateX(0);
+            transition: all $transitionTime ease-in-out;
+
+            &__panel {
+                @include flex.zoo-flex(column, center, center, var(--zoo-sp-8));
+
+                height: 100%;
+                width: 50%;
+                position: absolute;
+                top: 0;
+                transform: translateX(0);
+                padding: 0 var(--zoo-sp-40);
+                transition: all $transitionTime ease-in-out;
+
+                &__button {
+                    &--ghost {
+                        @include button.zoo-btn-color(transparent, var(--zoo-gray-min), var(--zoo-gray-min));
+
+                        border: 1px solid var(--zoo-gray-min);
+
+                        &:active,
+                        &:hover {
+                            transform: scale(1.1);
+                            background-color: var(--zoo-gray-min);
+                            color: var(--zoo-gray-max);
+                        }
+                
+                    }
+                }
+            }
+
+            &--left {
+                transform: translateX(0);
+            }
+
+
+            &--right {
+                right: 0;
+                transform: translateX(0);
+            }
+        }
+
+        &__subtitle {
+            max-width: 285px;
+        }
+    }
+
+    &.right-panel--active {
+        .overlay {
+            transform: translateX(-100%);
+
+            &__container {
+                transform: translateX(50%);
+
+                &--left {
+                    transform: translateX(0);
+                }
+
+                &--right {
+                    transform: translateX(0);
+                }
+            }
+        }
+
+        .sign-in-container {
+            opacity: 0;
+        }
+
+        .sign-up-container {
+            opacity: 1;
+            animation: show $transitionTime;
+        }
+    }
+
+    @keyframes show {
+
+        0%,
+        49.99% {
+            opacity: 0;
+            z-index: 1;
+        }
+
+        50%,
+        100% {
+            opacity: 1;
+            z-index: 2;
+        }
+    }
+}

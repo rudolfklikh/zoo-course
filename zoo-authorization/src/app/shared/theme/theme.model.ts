@@ -93,7 +93,10 @@ const ZooStaticPalette = {
 	'--zoo-line-height': '1.36',
 	'--zoo-header': '80px',
 	'--zoo-xxl-area': '1600px',
-	'--zoo-default-transition': '200ms'
+	'--zoo-default-transition': '200ms',
+
+	// Shadows
+	'--shadow-default-1': '0px 16px 20px rgba(0, 0, 0, 0.08), 0px 4px 10px rgba(0, 0, 0, 0.08)'
 };
 
 export const ZooThemes: IZooTheme[] = [

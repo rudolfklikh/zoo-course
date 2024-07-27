@@ -1,0 +1,5 @@
+@use 'flex';
+
+:host {
+    @include flex.zoo-flex(column);
+}

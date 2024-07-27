@@ -1,0 +1,24 @@
+<section class="auth zoo-br-8" #auth>
+	<div class="auth__container sign-up-container">
+		<zoo-sign-up></zoo-sign-up>
+	</div>
+	<div class="auth__container sign-in-container">
+		<zoo-sign-in></zoo-sign-in>
+	</div>
+	<div class="overlay">
+		<div class="overlay__container">
+			<div class="zoo-center overlay__container__panel overlay__container--left">
+				<h2 class="zoo-heading-b-6 zoo-mg-b-14">{{ TEXT_ELEMENTS.SIGN_IN_OVERLAY_TITLE }}</h2>
+				<p class="zoo-body-2 zoo-mg-b-14 overlay__subtitle">{{ TEXT_ELEMENTS.SIGN_IN_OVERLAY_SUBTITLE }}</p>
+				<button class="zoo-btn-md zoo-br-4 zoo-btn-primary overlay__container__panel__button--ghost"
+					(click)="togglePanel()">{{ TEXT_ELEMENTS.SIGN_IN_OVERLAY_BUTTON_TITLE }}</button>
+			</div>
+			<div class="zoo-center overlay__container__panel overlay__container--right">
+				<h2 class="zoo-heading-b-6 zoo-mg-b-14">{{ TEXT_ELEMENTS.SIGN_UP_OVERLAY_TITLE }}</h2>
+				<p class="zoo-body-2 zoo-mg-b-14 overlay__subtitle">{{ TEXT_ELEMENTS.SIGN_UP_OVERLAY_SUBTITLE }}</p>
+				<button class="zoo-btn-md zoo-br-4 overlay__container__panel__button--ghost" (click)="togglePanel()">{{
+					TEXT_ELEMENTS.SIGN_UP_OVERLAY_BUTTON_TITLE }}</button>
+			</div>
+		</div>
+	</div>
+</section>

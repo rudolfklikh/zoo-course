@@ -1,7 +1,6 @@
 import { APP_INITIALIZER, ApplicationConfig } from '@angular/core';
 import { provideAnimations } from '@angular/platform-browser/animations';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { InMemoryScrollingOptions, provideRouter, withInMemoryScrolling } from '@angular/router';
+import { InMemoryScrollingOptions, provideRouter, withInMemoryScrolling, withViewTransitions } from '@angular/router';
 
 import { routes } from './app.routes';
 import { ZooThemeService } from './shared';
@@ -12,7 +11,7 @@ const scrollConfig: InMemoryScrollingOptions = {
 };
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes, withInMemoryScrolling(scrollConfig)),
+  providers: [provideRouter(routes, withInMemoryScrolling(scrollConfig), withViewTransitions()),
     provideAnimations(),
     {
 			provide: APP_INITIALIZER,
@@ -20,6 +19,5 @@ export const appConfig: ApplicationConfig = {
 			multi: true,
 			deps: [ZooThemeService]
 		},
-    provideAnimationsAsync()
   ]
 };
