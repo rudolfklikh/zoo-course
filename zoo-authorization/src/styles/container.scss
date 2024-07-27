@@ -1,0 +1,145 @@
+// -------------------------- Cursors --------------------------
+$cursors: pointer, not-allowed, wait, inherit, col-resize, help, text, move, zoom-in, zoom-out;
+
+@each $cursor in $cursors {
+	.zoo-crs-#{$cursor} {
+		cursor: $cursor;
+	}
+}
+
+// Define the border radius values in a map
+$border-radius-values: (
+	0: var(--zoo-br-0),
+	4: var(--zoo-br-4),
+	8: var(--zoo-br-8),
+	16: var(--zoo-br-16),
+	32: var(--zoo-br-32),
+	50: var(--zoo-br-50),
+	80: var(--zoo-br-80)
+);
+
+$border-radius-no-px: map-keys($border-radius-values);
+
+// Define the border positions in a map
+$border-positions: (
+	full: '',
+	tl: top-left,
+	tr: top-right,
+	bl: bottom-left,
+	br: bottom-right
+);
+
+@each $radius-value in $border-radius-no-px {
+	@each $position-key, $position-value in $border-positions {
+		@if $position-key== 'full' {
+			$class-name: 'zoo-br-#{$radius-value}';
+
+			.#{$class-name} {
+				border-radius: $radius-value * 1px;
+			}
+		} @else {
+			$class-name: 'zoo-br-#{$position-key}-#{$radius-value}';
+
+			.#{$class-name} {
+				border-#{$position-value}-radius: $radius-value * 1px;
+			}
+		}
+	}
+}
+
+.zoo-br-100 {
+	border-radius: 100%;
+}
+
+$spacings: (
+	0: var(--zoo-sp-0),
+	1: var(--zoo-sp-1),
+	2: var(--zoo-sp-2),
+	4: var(--zoo-sp-4),
+	6: var(--zoo-sp-6),
+	8: var(--zoo-sp-8),
+	10: var(--zoo-sp-10),
+	12: var(--zoo-sp-12),
+	14: var(--zoo-sp-14),
+	16: var(--zoo-sp-16),
+	20: var(--zoo-sp-20),
+	24: var(--zoo-sp-24),
+	28: var(--zoo-sp-28),
+	32: var(--zoo-sp-32),
+	36: var(--zoo-sp-36),
+	40: var(--zoo-sp-40),
+	48: var(--zoo-sp-48),
+	56: var(--zoo-sp-56),
+	64: var(--zoo-sp-64),
+	80: var(--zoo-sp-80),
+	96: var(--zoo-sp-96),
+	112: var(--zoo-sp-112),
+	120: var(--zoo-sp-120),
+	128: var(--zoo-sp-128),
+	144: var(--zoo-sp-144),
+	160: var(--zoo-sp-160),
+	176: var(--zoo-sp-176),
+	192: var(--zoo-sp-192),
+	200: var(--zoo-sp-200),
+	208: var(--zoo-sp-208),
+	224: var(--zoo-sp-224),
+	240: var(--zoo-sp-240),
+	256: var(--zoo-sp-256),
+	288: var(--zoo-sp-288),
+	320: var(--zoo-sp-320),
+	384: var(--zoo-sp-384)
+);
+
+$margin-padding-directions: (
+	def: '',
+	l: left,
+	r: right,
+	t: top,
+	b: bottom
+);
+
+$spacings-no-px: map-keys($spacings);
+
+@each $padding-value in $spacings-no-px {
+	@each $direction-key, $direction-value in $margin-padding-directions {
+		$value-with-px: ($padding-value * 1px);
+
+		@if $direction-key== 'def' {
+			$class-name: 'zoo-pd-#{$padding-value}';
+
+			.#{$class-name} {
+				padding: $value-with-px;
+			}
+		} @else {
+			$class-name: 'zoo-pd-#{$direction-key}-#{$padding-value}';
+
+			.#{$class-name} {
+				padding-#{$direction-value}: $value-with-px;
+			}
+		}
+	}
+}
+
+@each $margin-value in $spacings-no-px {
+	@each $direction-key, $direction-value in $margin-padding-directions {
+		$value-with-px: ($margin-value * 1px);
+
+		@if $direction-key== 'def' {
+			$class-name: 'zoo-mg-#{$margin-value}';
+
+			.#{$class-name} {
+				margin: $value-with-px;
+			}
+		} @else {
+			$class-name: 'zoo-mg-#{$direction-key}-#{$margin-value}';
+
+			.#{$class-name} {
+				margin-#{$direction-value}: $value-with-px;
+			}
+		}
+	}
+}
+
+.zoo-margin-centered {
+	margin: 0 auto;
+}
