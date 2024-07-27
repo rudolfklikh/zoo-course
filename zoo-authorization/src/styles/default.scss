@@ -1,0 +1,42 @@
+html,
+body {
+	height: 100%;
+	scroll-behavior: smooth !important;
+}
+
+body {
+	margin: 0;
+	font-family: 'Rubik', sans-serif;
+	color: var(--zoo-gray-900);
+	background-color: var(--zoo-gray-min);
+	transition: all var(--zoo-default-transition) ease-in-out;
+}
+
+input,
+textarea {
+	font-family: 'Rubik', sans-serif;
+}
+
+a {
+	color: var(--zoo-gray-950);
+	text-decoration: none !important;
+	cursor: pointer;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+li,
+figure {
+	margin: 0;
+	padding: 0;
+}
+
+ul {
+	list-style: none;
+}
