@@ -1,5 +1,46 @@
 @use 'flex';
+@use 'button';
 
 :host {
     @include flex.zoo-flex(column);
+
+    height: 100%;
+}
+
+.sign-in {
+    $controlHeight: 103px;
+
+    @include flex.zoo-flex(column, center, initial, var(--zoo-sp-12));
+
+    height: 100%;
+    padding: 0 var(--zoo-sp-48);
+
+    &-form {
+        @include flex.zoo-flex(column, center, center, var(--zoo-sp-12));
+
+        &__control {
+            min-height: $controlHeight;
+            width: 90%;
+
+            &--required {
+                color: var(--zoo-system-red-700);
+            }
+        }
+
+        &__error {
+            display: block;
+            color: var(--zoo-system-red-700);
+        }
+    }
+
+    &__button {
+        @include button.zoo-btn-color(var(--zoo-system-blue-900), var(--zoo-primary-100), var(--zoo-system-blue-900));
+
+        border: 1px solid var(--zoo-primary-100);
+
+        &:active,
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
 }

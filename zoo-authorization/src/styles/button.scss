@@ -33,6 +33,8 @@
 
 	&:disabled {
 		@extend .zoo-crs-not-allowed;
+
+		opacity: 0.8;
 	}
 }
 
