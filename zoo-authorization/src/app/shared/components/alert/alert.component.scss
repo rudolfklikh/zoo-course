@@ -1,0 +1,14 @@
+.alerts {
+	position: fixed;
+	z-index: 10001;
+
+	&--top {
+		top: 80px;
+		right: 20px;
+	}
+
+	&--bottom {
+		bottom: 80px;
+		right: 20px;
+	}
+}

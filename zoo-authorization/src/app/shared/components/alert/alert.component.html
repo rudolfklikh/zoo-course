@@ -1,0 +1,11 @@
+<div class="alerts alerts--{{ alertPosition() }}">
+	@for (alert of alertService.alerts$ | async; track $index) {
+		<zoo-alert-item
+			*ngFor="let alert of alertService.alerts$ | async"
+			[alert]="alert"
+			[retentionTime]="retentionTime"
+			[position]="alertPosition()"
+			[styleMap]="getStyleMap(alert?.type)!">
+		</zoo-alert-item>
+	}
+</div>
