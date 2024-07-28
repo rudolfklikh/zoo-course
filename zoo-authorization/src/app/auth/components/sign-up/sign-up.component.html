@@ -11,17 +11,18 @@
 				<span class="zoo-body-b-3 zoo-mg-l-2 sign-up-form__control--required">*</span>
 				}
 			</label>
-			<input class="zoo-input" [id]="controlName" [formControlName]="controlName" />
+			<input class="zoo-input" [id]="controlName" [formControlName]="controlName"
+				[type]="getControlType(controlName)" />
 
 			@if (showError(controlName)) {
 			@if (formControls[controlName].errors?.['required']) {
-			<span class="sign-up-form__error zoo-mg-t-4">This field is required</span>
+			<zoo-error-message [control]="getControl(controlName)"></zoo-error-message>
 			}
 			}
 		</div>
 		}
 
-		<button class="zoo-btn zoo-btn-md zoo-br-4 sign-up__button" [disabled]="!form.valid">{{
-			TEXT_ELEMENTS.SIGN_UP_TITLE }}</button>
+		<button class="zoo-btn zoo-btn-md zoo-br-4 sign-up__button" [disabled]="!form.valid"
+			(click)="submit()">{{TEXT_ELEMENTS.SIGN_UP_TITLE }}</button>
 	</form>
 </section>

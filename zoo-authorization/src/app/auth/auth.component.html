@@ -1,9 +1,9 @@
 <section class="auth zoo-br-8" #auth>
 	<div class="auth__container sign-up-container">
-		<zoo-sign-up></zoo-sign-up>
+		<zoo-sign-up (onSubmit)="signUp($event)"></zoo-sign-up>
 	</div>
 	<div class="auth__container sign-in-container">
-		<zoo-sign-in></zoo-sign-in>
+		<zoo-sign-in (onSubmit)="signIn($event)"></zoo-sign-in>
 	</div>
 	<div class="overlay">
 		<div class="overlay__container">

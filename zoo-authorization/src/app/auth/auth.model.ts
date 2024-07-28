@@ -1,6 +1,9 @@
 import { InjectionToken } from "@angular/core";
-import { BaseFormComponent } from "../shared";
-import { ISignUpFormValue } from "./components/sign-up/sign-up.model";
-import { ISignInFormValue } from "./components/sign-in/sign-in.model";
+import { FormGroup } from "@angular/forms";
 
-export const AUTH_SECTION_TOKEN = new InjectionToken<BaseFormComponent<ISignUpFormValue | ISignInFormValue>>('AUTH_SECTION_TOKEN');
+export interface IAuthSection {
+    form: FormGroup;
+    clearForm: () => void;
+}
+
+export const AUTH_SECTION_TOKEN = new InjectionToken<IAuthSection>('AUTH_SECTION_TOKEN');

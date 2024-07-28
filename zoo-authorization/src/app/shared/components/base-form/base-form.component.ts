@@ -1,45 +1,51 @@
-import { ChangeDetectorRef, Component, inject } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, output, OutputEmitterRef } from '@angular/core';
 import { AbstractControl, FormGroup, Validators } from '@angular/forms';
-import { IFormControls } from './base-form.model';
+import { EInputTypes, IFormControls } from './base-form.model';
 
 @Component({
-  selector: 'zoo-base-form',
   template: '',
   standalone: true,
 })
-export abstract class BaseFormComponent<T extends { [key: string]: any }>  {
-  private cdr = inject(ChangeDetectorRef);
+export abstract class BaseFormComponent<V extends Record<string, any>, T extends Record<keyof V, EInputTypes>>  {
+  private readonly cdr = inject(ChangeDetectorRef);
 
-  form!: FormGroup<IFormControls<T>>;
+  abstract onSubmit: OutputEmitterRef<V>;
 
-    
-  get formValue(): T {
-    return this.form.value as T;
+  form!: FormGroup<IFormControls<V>>;
+  controlTypes!: T;
+
+  get formValue(): V {
+    return this.form.value as V;
   }
 
-  get formControls(): IFormControls<T> {
-    return this.form.controls as IFormControls<T>;
+  get formControls(): IFormControls<V> {
+    return this.form.controls as IFormControls<V>;
   }
 
-  get controlNames(): Array<keyof T> {
+  get controlNames(): Array<keyof V> {
     return Object.keys(this.formControls);
   }
 
-  initializeForm(controlsConfig: IFormControls<T>): void {
+  initializeForm(controlsConfig: IFormControls<V>, controlsType: T): void {
     this.form = new FormGroup(controlsConfig);
+    this.controlTypes = controlsType;
   }
 
-  getControl<K extends keyof T>(key: K): AbstractControl {
+  getControl<K extends keyof V>(key: K): AbstractControl {
     return this.form.get(key as string) as AbstractControl;
   }
 
-  isRequiredControl<K extends keyof T>(key: K): boolean {
+  getControlType<K extends keyof V>(key: K): EInputTypes {
+    return this.controlTypes[key] || EInputTypes.TEXT;
+  }
+
+  isRequiredControl<K extends keyof V>(key: K): boolean {
     const formControl = this.getControl(key);
 
     return formControl.hasValidator(Validators.required); 
   }
 
-  showError<K extends keyof T>(key: K): boolean {
+  showError<K extends keyof V>(key: K): boolean {
     const formControl = this.getControl(key);
 
     return formControl.invalid && (formControl.dirty || formControl.touched);

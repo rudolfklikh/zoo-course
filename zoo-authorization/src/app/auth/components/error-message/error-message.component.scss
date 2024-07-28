@@ -1,0 +1,9 @@
+@use 'flex';
+
+
+.error-wrapper {
+    &__error {
+        display: block;
+        color: var(--zoo-system-red-700);
+    }
+}

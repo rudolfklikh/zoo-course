@@ -1,0 +1,21 @@
+<div #alertElement class="alert zoo-br-16 zoo-pd-16 zoo-pd-r-36 zoo-mg-t-12 zoo-crs-pointer" (click)="onRemove()">
+	<div class="alert-content">
+		<zoo-icon
+			class="alert-content__icon"
+			[width]="styleMap().iconWidth"
+			[height]="styleMap().iconHeight"
+			[name]="styleMap().iconName"
+			[fill]="styleMap().iconColor">
+		</zoo-icon>
+
+		<div class="alert-content__message">
+			<h6 class="zoo-body-3 zoo-600">{{ alert().header }}</h6>
+
+			@if (alert().body) {
+				<p class="zoo-body-4">{{ alert().body }}</p>
+			}
+		</div>
+	</div>
+
+	<div #progressElement class="alert-content__progress alert-content__progress--{{ alert().type }}"></div>
+</div>
