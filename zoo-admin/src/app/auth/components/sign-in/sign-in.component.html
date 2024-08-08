@@ -1,0 +1,26 @@
+<section class="sign-in">
+	<h2 class="zoo-heading-6 zoo-mg-b-24 zoo-center">{{ TEXT_ELEMENTS.SIGN_IN_TITLE }}</h2>
+
+	<form class="sign-in-form" [formGroup]="form">
+		@for (controlName of controlNames; track $index) {
+		<div class="sign-in-form__control">
+			<label class="zoo-label" [for]="controlName">
+				{{ controlName | titlecase }}
+
+				@if (isRequiredControl(controlName)) {
+				<span class="zoo-body-b-3 zoo-mg-l-2 sign-in-form__control--required">*</span>
+				}
+			</label>
+			<input class="zoo-input" [id]="controlName" [formControlName]="controlName"
+				[type]="getControlType(controlName)" />
+
+			@if (showError(controlName)) {
+			<zoo-error-message [control]="getControl(controlName)"></zoo-error-message>
+			}
+		</div>
+		}
+
+		<button class="zoo-btn zoo-btn-md zoo-br-4 sign-in__button" [disabled]="!form.valid" (click)="submit()">{{
+			TEXT_ELEMENTS.SIGN_IN_TITLE }}</button>
+	</form>
+</section>
