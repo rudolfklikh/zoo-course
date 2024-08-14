@@ -1,0 +1,102 @@
+// -------------------------- Mixins --------------------------
+
+@mixin zoo-title($fontWeight: 400, $fontSize: 16px, $lineHeight: 1.2) {
+	font-family: 'Rubik', sans-serif;
+	font-weight: $fontWeight;
+	font-size: $fontSize;
+	line-height: $lineHeight;
+}
+
+// -------------------------- Headings --------------------------
+$headingSizes: (
+	1: var(--zoo-heading-1),
+	2: var(--zoo-heading-2),
+	3: var(--zoo-heading-3),
+	4: var(--zoo-heading-4),
+	5: var(--zoo-heading-5),
+	6: var(--zoo-heading-6)
+);
+
+@each $level, $size in $headingSizes {
+	h#{$level},
+	.zoo-heading-#{$level} {
+		@include zoo-title(400, $size, calc(#{$size} * #{var(--zoo-line-height)}));
+	}
+
+	.zoo-heading-b-#{$level} {
+		@include zoo-title(700, $size, calc(#{$size} * #{var(--zoo-line-height)}));
+	}
+}
+
+// -------------------------- Body Text --------------------------
+$bodyTextSizes: (
+	1: var(--zoo-body-1),
+	2: var(--zoo-body-2),
+	3: var(--zoo-body-3),
+	4: var(--zoo-body-4),
+	5: var(--zoo-body-5)
+);
+
+@each $level, $size in $bodyTextSizes {
+	.zoo-body-#{$level} {
+		@include zoo-title(400, $size, calc(#{$size} * #{var(--zoo-line-height)}));
+	}
+
+	.zoo-body-b-#{$level} {
+		@include zoo-title(700, $size, calc(#{$size} * #{var(--zoo-line-height)}));
+	}
+}
+
+p {
+	@include zoo-title(400, var(--zoo-body-4), calc(#{var(--zoo-body-4)} * #{var(--zoo-line-height)}));
+}
+
+// -------------------------- Mixins --------------------------
+
+@for $i from 100 through 900 {
+	.zoo-#{$i} {
+		font-weight: $i;
+	}
+}
+
+// -------------------------- Text Transforms --------------------------
+$transforms: uppercase, lowercase, capitalize;
+
+@each $transform in $transforms {
+	.zoo-#{$transform} {
+		text-transform: $transform;
+	}
+}
+
+// -------------------------- Font Styles --------------------------
+$styles: normal, italic, oblique;
+
+@each $style in $styles {
+	.zoo-#{$style} {
+		font-style: $style;
+	}
+}
+
+// -------------------------- Text Align --------------------------
+$aligns: left, center, right;
+
+@each $align in $aligns {
+	.zoo-#{$align} {
+		text-align: $align;
+	}
+}
+
+// -------------------------- Text Decoration --------------------------
+$decorations: underline, line-through;
+
+@each $decoration in $decorations {
+	.zoo-#{$decoration} {
+		text-decoration: $decoration;
+	}
+}
+
+.zoo-ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}

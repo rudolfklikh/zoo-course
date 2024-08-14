@@ -1,10 +1,13 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { ZooAlertComponent } from './shared';
+import { ZooHeaderComponent } from './shared/components/header/header.component';
 
 @Component({
-  selector: 'app-root',
+  selector: 'zoo-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [CommonModule, RouterOutlet, ZooAlertComponent, ZooHeaderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

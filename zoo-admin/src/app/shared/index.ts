@@ -1,6 +1,5 @@
 export * from './services/theme/theme.model';
 export * from './services/theme/theme.service';
-export * from '../auth/components/base-form/base-form.component';
 export * from './components/alert/alert.service';
 export * from './components/alert/alert.component';
 export * from './components/alert/alert-item/alert-item.component';

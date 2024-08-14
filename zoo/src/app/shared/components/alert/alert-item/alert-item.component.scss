@@ -1,0 +1,84 @@
+@use 'flex';
+@use 'variables' as vars;
+
+.alert {
+	max-width: 300px;
+	position: relative;
+	overflow: hidden;
+	box-shadow: var(--zoo-shadow-2);
+	background-color: var(--zoo-static-white);
+	transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
+	transform: translateX(calc(calc(var(--transition-direction)) + calc(var(--transition-space))));
+
+	@include vars.s() {
+		max-width: 375px;
+	}
+
+	&.active {
+		transform: translateX(0%);
+	}
+
+	&-content {
+		@include flex.zoo-flex(row, initial, center);
+
+		&__cancel {
+			position: absolute;
+			top: 10px;
+			right: 16px;
+		}
+
+		&__message {
+			@include flex.zoo-flex(column, initial, initial, 4px);
+			margin: 0 12px;
+		}
+
+		&__progress {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			height: 4px;
+			width: 100%;
+
+			&:before {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				right: 0;
+				height: 100%;
+				width: 100%;
+				transform: translateX(calc(0%));
+				background-color: var(--zoo-neutral-variant-40);
+				transition: all var(--transition-progress) ease-out;
+			}
+
+			&.active:before {
+				transform: translateX(calc(-100%));
+				background-color: var(--zoo-system-green-500);
+			}
+
+			&--success {
+				&:before {
+					background-color: var(--zoo-system-green-500);
+				}
+			}
+
+			&--warning {
+				&:before {
+					background-color: var(--zoo-primary-700);
+				}
+			}
+
+			&--danger {
+				&:before {
+					background-color: var(--zoo-system-red-700);
+				}
+			}
+
+			&--default {
+				&:before {
+					background-color: var(--zoo-system-blue-800);
+				}
+			}
+		}
+	}
+}

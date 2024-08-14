@@ -1,0 +1,40 @@
+<header class="zoo-header zoo-pd-l-24 zoo-pd-r-24">
+	<nav class="zoo-header-nav">
+		<a class="zoo-header-nav__logo">
+			<img src="/assets/logo.png" alt="logo" title="logo">
+			<h1 class="zoo-heading-3 zoo-500 zoo-header-nav__logo__title">{{ title }}</h1>
+		</a>
+		<div class="zoo-header-nav__links">
+			@for (navItem of links; track navItem.id) {
+			<a [routerLink]="navItem.url" class="zoo-btn zoo-btn-sm zoo-btn-link">
+				{{ navItem.name }}
+			</a>
+			}
+		</div>
+
+		<div class="zoo-crs-pointer zoo-pd-l-24 zoo-header-nav__burger" (click)="toggleMenu()">
+			@for (item of [0, 1, 2]; track $index) {
+				<div class="zoo-header-nav__burger-menu" [class.zoo-header-nav__burger-menu--show]="toggleBurger()"></div>
+			}
+		</div>
+	</nav>
+</header>
+
+<!-- ------------------------Mobile Burger Menu------------------------ -->
+@if (toggleBurger()) {
+	<div class="zoo-header-mobile" role="menu" [@zooList]>
+		<ul class="zoo-header-mobile-list zoo-pd-t-16 zoo-pd-l-16" [@zooListItems]="links.length">
+			@for (navItem of links; track navItem.id) {
+				<a [routerLink]="navItem.url" class="zoo-header-mobile-list__item zoo-body-2 zoo-crs-pointer">
+					{{ navItem.name }}
+				</a>
+
+				@for (childItem of navItem.children; track childItem.id) {
+					<a [routerLink]="childItem.url" class="zoo-header-mobile-list__item zoo-body-2 zoo-crs-pointer">
+						{{ childItem.name }}
+					</a>
+				}
+			}
+		</ul>
+	</div>
+}
