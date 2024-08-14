@@ -1,0 +1,138 @@
+@use 'flex';
+@use 'variables' as vars;
+
+:host {
+	@include flex.zoo-flex(row, initial, center);
+
+	height: var(--zoo-header);
+	width: 100%;
+
+	position: fixed;
+	top: 0;
+	z-index: 1000;
+
+	background-color: var(--zoo-gray-min);
+
+	@include vars.l {
+		justify-content: center;
+	}
+}
+
+.zoo-header {
+	@include flex.zoo-flex(row, space-between, center);
+
+	width: 100%;
+	position: relative;
+
+	@include vars.l {
+		max-width: vars.$screen-l-min;
+	}
+
+	@include vars.xxl {
+		max-width: var(--zoo-xxl-area);
+	}
+
+
+	&-nav {
+		@include flex.zoo-flex(row, space-between, center, var(--zoo-sp-24));
+
+		width: 100%;
+
+		&__logo {
+			@include flex.zoo-flex(row, center, flex-start, var(--zoo-sp-12));
+
+			transition: all var(--zoo-default-transition) ease-in-out;
+			color: var(--zoo-system-green-500);
+
+			&__title {
+				display: none;
+
+				@include vars.s {
+					display: block;
+				}
+			}
+
+			&:hover {
+				transform: translateX(6px);
+				transition: all var(--zoo-default-transition) ease-in-out;
+			}
+		}
+
+		&__links {
+			display: none;
+
+			@include vars.m {
+				@include flex.zoo-flex(row, initial, center);
+			}
+
+			& a {
+				&:hover {
+					transform: translateY(-2px);
+				}
+			}
+		}
+
+		&__burger {
+			@include flex.zoo-flex(column, space-between);
+			height: 16px;
+
+			@include vars.m {
+				display: none;
+			}
+
+			&-menu {
+				width: 20px;
+				height: 2px;
+				background-color: var(--zoo-gray-900);
+				transition: all var(--zoo-default-transition) ease-in-out;
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+
+				&--show {
+					&:first-child {
+						transform: rotate(-45deg) translate(-7px, 3px);
+					}
+
+					&:nth-of-type(2) {
+						opacity: 0;
+					}
+
+					&:last-child {
+						transform: rotate(45deg) translate(-7px, -3px);
+					}
+				}
+			}
+		}
+	}
+}
+
+.zoo-header-mobile {
+	width: 100%;
+	height: calc(100% - #{var(--zoo-header)});
+	position: fixed;
+	top: var(--zoo-header);
+	left: 0;
+	z-index: 1001;
+	overflow-y: auto;
+	background: var(--zoo-static-white);
+
+	@include vars.m {
+		display: none;
+	}
+
+	&-list {
+		@include flex.zoo-flex(column, initial, flex-start, 24px);
+
+		&__item {
+			transition: all var(--zoo-default-transition) ease-in-out;
+
+			&:hover {
+				color: var(--zoo-primary-70);
+				transform: translateX(6px);
+				transition: all var(--zoo-default-transition) ease-in-out;
+			}
+		}
+	}
+}

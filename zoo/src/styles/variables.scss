@@ -1,0 +1,73 @@
+// Breakpoints
+$screen-xs-max: 420px;
+$screen-s-min: 768px;
+$screen-m-min: 1024px;
+$screen-l-min: 1280px;
+$screen-xl-min: 1472px;
+$screen-xxl-min: 1920px;
+
+// Mobile
+@mixin xs {
+	@media (max-width: #{$screen-xs-max}) {
+		@content;
+	}
+}
+
+// Tablet
+@mixin s {
+	@media (min-width: #{$screen-s-min}) {
+		@content;
+	}
+}
+
+// Tablet/Desktop
+@mixin m {
+	@media (min-width: #{$screen-m-min}) {
+		@content;
+	}
+}
+
+// Desktop
+@mixin l {
+	@media (min-width: #{$screen-l-min}) {
+		@content;
+	}
+}
+
+@mixin xl {
+	@media (min-width: #{$screen-xl-min}) {
+		@content;
+	}
+}
+
+@mixin xxl {
+	@media (min-width: #{$screen-xxl-min}) {
+		@content;
+	}
+}
+
+// Custom
+@mixin custom($screen) {
+	@media (min-width: $screen) {
+		@content;
+	}
+}
+
+// Print
+@mixin print($orientation: portrait) {
+	@media print {
+		@if $orientation == portrait {
+			@page {
+				size: portrait;
+			}
+		} @else if $orientation == landscape {
+			@page {
+				size: landscape;
+			}
+		} @else {
+			@warn "Invalid orientation parameter. Use 'portrait' or 'landscape'.";
+		}
+
+		@content;
+	}
+}

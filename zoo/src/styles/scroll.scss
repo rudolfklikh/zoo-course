@@ -1,0 +1,45 @@
+@keyframes enter {
+	0% {
+		opacity: 0;
+		transform: translateY(-50px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes exit {
+	0% {
+		opacity: 1;
+		transform: scale(1);
+	}
+
+	100% {
+		opacity: 0;
+		transform: scale(0.8);
+	}
+}
+
+::view-transition-old(root) {
+	animation: exit 0.5s ease 0s 1 normal forwards;
+}
+
+::view-transition-new(root) {
+	animation: enter 0.5s ease 0s 1 normal forwards;
+}
+
+::-webkit-scrollbar {
+	width: 8px;
+	background: transparent;
+}
+
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 16px;
+	background: var(--zoo-primary-800);
+}
