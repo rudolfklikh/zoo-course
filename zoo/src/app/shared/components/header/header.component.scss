@@ -18,7 +18,7 @@
 	}
 }
 
-.zoo-header {
+.header {
 	@include flex.zoo-flex(row, space-between, center);
 
 	width: 100%;
@@ -108,7 +108,7 @@
 	}
 }
 
-.zoo-header-mobile {
+.header-mobile {
 	width: 100%;
 	height: calc(100% - #{var(--zoo-header)});
 	position: fixed;
