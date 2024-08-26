@@ -1,0 +1,44 @@
+<footer class="footer zoo-pd-24 zoo-margin-centered">
+	<nav class="footer-nav">
+		<div class="footer-nav__col footer-nav__col-contacts zoo-mg-l-12">
+			<h6 class="footer-nav__col-title">{{ contacts.title }}</h6>
+
+			@for (contact of contacts.links; track $index) {
+			@if (isEmail(contact.name)) {
+			<a [href]="'mailto:{{ child.name }}'" class="footer-nav__col-contacts__item footer-nav__col-link zoo-body-3">{{ contact.name
+				}}</a>
+			} @else if (isPhone(contact.name)) {
+			<a [href]="'tel:{{ child.name }}'" class="footer-nav__col-contacts__item footer-nav__col-link zoo-body-3">{{ contact.name }}</a>
+			} @else {
+			<p class="footer-nav__col-text zoo-body-3">{{ contact.name }}</p>
+			}
+			}
+
+			<div class="footer-nav__col-row">
+				@for (socialItem of social.links; track $index) {
+				<a class="footer-nav__col-link" [href]="socialItem.url" target="_blank">
+					<zoo-icon [name]="socialItem.logo" [fill]="'var(--zoo-gray-min)'"></zoo-icon>
+				</a>
+				}
+			</div>
+		</div>
+
+		<div class="footer-nav__col">
+			<h6 class="footer-nav__col-title zoo-pd-l-20">{{ navigation.title }}</h6>
+			@for (navItem of navigation.links; track $index) {
+			<a class="footer-nav__col-link zoo-btn zoo-btn-sm zoo-btn-link" (click)="onClick(navItem.url)">{{
+				navItem.name }}</a>
+			}
+		</div>
+
+		<div class="footer-nav__col">
+			<h6 class="footer-nav__col-title zoo-pd-l-20">{{ navigation.title }}</h6>
+			@for (navItem of navigation.links; track $index) {
+			<a class="footer-nav__col-link zoo-btn zoo-btn-sm zoo-btn-link" (click)="onClick(navItem.url)">{{
+				navItem.name }}</a>
+			}
+		</div>
+	</nav>
+
+	<p class="footer-copyright zoo-mg-t-48">{{ copyright }}</p>
+</footer>
