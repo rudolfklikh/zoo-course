@@ -1,0 +1,15 @@
+@if (metadata()) {
+	<div class="content-carousel">
+        <ngb-carousel class="carousel" [interval]="0">
+            @for (slide of metadata().images; track $index) {
+                <ng-template ngbSlide>
+                    <div class="picsum-img-wrapper">
+                        <img [src]="slide" alt="Random first slide" />
+                    </div>
+                    <div class="carousel-caption">
+                    </div>
+                </ng-template>
+            }
+        </ngb-carousel>
+    </div>
+}

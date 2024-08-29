@@ -1,0 +1,27 @@
+@use 'flex';
+@use 'variables' as vars;
+
+
+
+.section {
+	height: var(--section-height);
+
+	&__content {
+		display: block;		
+		height: 100%;
+
+		@include vars.m {
+			@include flex.zoo-flex(row, flex-start, center);
+		}
+
+		& > * {
+			display: block;
+			height: var(--section-media-height);
+
+			@include vars.m {
+				height: var(--section-height);
+				flex: 1;
+			}
+		}
+	}
+}
