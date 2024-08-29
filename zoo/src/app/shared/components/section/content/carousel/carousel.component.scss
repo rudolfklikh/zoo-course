@@ -1,0 +1,30 @@
+@use 'flex';
+@use 'variables' as vars;
+
+
+.content-carousel {
+	height: 100%;
+
+	.carousel {
+		height: 100%;
+
+		::ng-deep {
+			.carousel-inner {
+				height: 100%;
+			}
+			.carousel-item {
+				height: 100%;
+			}
+			.picsum-img-wrapper {
+				height: 100%;
+			}
+		}
+	}
+
+	& img {
+		height: 100%;
+		max-height: var(--section-height);
+		width: 100%;
+		object-fit: cover;
+	}
+}

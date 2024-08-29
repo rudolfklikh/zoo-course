@@ -1,0 +1,11 @@
+@if (metadata()) {
+	<div #container class="content-container" [class.content-container--background]="hasBackground()">
+        <h3 class="content-container__title zoo-heading-b-4">{{ metadata().title | titlecase }}</h3>
+
+        <div class="content-container__buttons">
+            @for (button of metadata().buttons; track $index) {
+                <button class="zoo-btn zoo-btn-sm">{{ button.title }}</button>
+            }
+        </div>
+    </div>
+}

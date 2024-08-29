@@ -9,7 +9,7 @@ export const NAV_LINKS = {
         title: EZooFooterTitles.ADRESS,
         links: [
             {
-                name: 'test@gmail.com',
+                name: 'qupeal.info@gmail.com',
                 logo: 'mail'
             },
             {
@@ -17,7 +17,7 @@ export const NAV_LINKS = {
                 logo: 'call'
             },
             {
-                name: '123 Street, New York, USA',
+                name: 'Spain, Madrid, Vipassana 10',
                 logo: 'location_on'
             },
         ]

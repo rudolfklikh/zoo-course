@@ -42,8 +42,6 @@ export class AuthComponent {
   }
 
   signUp(formValue: ISignUpFormValue): void {
-    console.log('signUp');
-
     this.alertService.success({
       header: 'Signup successful!',
       body: 'Welcome to our platform.'
@@ -53,8 +51,6 @@ export class AuthComponent {
   }
 
   signIn(formValue: ISignInFormValue): void {
-    console.log('signIn');
-
     this.alertService.success({
       header: 'Login successful!',
       body: 'Welcome back.',

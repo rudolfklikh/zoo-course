@@ -18,7 +18,7 @@ export class ZooFooterComponent {
 	protected readonly contacts = NAV_LINKS.contacts;
 	protected readonly social = NAV_LINKS.social;
 	protected readonly navigation = NAV_LINKS.navigation;
-	protected readonly copyright = '© 2024 Zoo course project. All rights reserved';
+	protected readonly copyright = '© 2024 Біль це вчитель, а не кара. All rights reserved';
 
 	public isEmail(value: string): boolean {
 		return value.includes('@');

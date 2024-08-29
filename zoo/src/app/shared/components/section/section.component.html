@@ -1,0 +1,18 @@
+@if (metadata()) {
+	<div #section class="section">
+        <h3 class="section__title zoo-heading-b-4">{{ metadata().title | titlecase }}</h3>
+
+        <div class="section__content">
+            @for (content of metadata().content; track $index) {
+                @switch (content.type) {
+                    @case (CONTENT_TYPE.CAROUSEL) {
+                        <zoo-carousel [metadata]="content"></zoo-carousel>
+                    }
+                    @default {
+                        <zoo-container [metadata]="content"></zoo-container>
+                    }
+                }
+            }
+        </div>
+    </div>
+}

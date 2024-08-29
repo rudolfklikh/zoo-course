@@ -52,8 +52,6 @@ export class ZooAlertService {
 	}
 
 	public remove(alert: IZooAlert | null): void {
-		console.log(alert, '=> remove() alert.service.ts');
-
 		this._alerts$$.next(this.alerts.filter(alertItem => alertItem !== alert));
 	}
 }

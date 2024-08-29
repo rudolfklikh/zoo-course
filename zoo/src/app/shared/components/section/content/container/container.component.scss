@@ -1,0 +1,37 @@
+@use 'flex';
+@use 'variables' as vars;
+
+.content-container {
+	@include flex.zoo-flex(column, center, center, var(--zoo-sp-32));
+
+	height: 100%;
+	width: 100%;
+
+	&__title {
+		color: var(--zoo-gray-min);
+		text-align: center;
+	}
+
+	&__buttons {
+		@include flex.zoo-flex(row, center, center, var(--zoo-sp-16), wrap);
+
+		& button {
+			color: var(--zoo-gray-min);
+			background-color: var(--zoo-system-green-950);
+			box-shadow: var(--shadow-default-1);
+			border: none;
+			transition: var(--zoo-default-transition);
+
+			&:hover {
+				opacity: 0.9;
+				transform: translateY(-2px);
+			}
+		}
+
+	}
+
+	&--background {
+		background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), var(--background-image) center center no-repeat;
+		background-size: cover;
+	}
+}
