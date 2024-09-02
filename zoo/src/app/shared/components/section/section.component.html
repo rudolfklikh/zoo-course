@@ -8,6 +8,9 @@
                     @case (CONTENT_TYPE.CAROUSEL) {
                         <zoo-carousel [metadata]="content"></zoo-carousel>
                     }
+                    @case (CONTENT_TYPE.CONTAINER_CENTERED) {
+                        <zoo-container-centered [metadata]="content"></zoo-container-centered>
+                    }
                     @default {
                         <zoo-container [metadata]="content"></zoo-container>
                     }

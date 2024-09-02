@@ -30,5 +30,20 @@ export const HOME_CONTENT: IHomeContent = {
         },
       ],
     },
+    {
+      id: 'section#2',
+      order: 1,
+      height: 600,
+      content: [
+        {
+          type: EZooSectionContentType.CONTAINER_CENTERED,
+          title: 'why you should visit zoofari park!',
+      	  subtitle: 'Stet no et lorem dolor et diam, amet duo ut dolore vero eos. No stet est diam rebum amet diam ipsum. Clita clita labore, dolor duo nonumy clita sit at, sed sit sanctus dolor eos.',
+          list: ['free car parking', 'natural environment', 'professional guide & security', 'world best animals'],
+          buttons: [  { title: 'Read more', url: '' }],
+          image: '/assets/about.jpg',
+        },
+      ],
+    },
   ],
 };

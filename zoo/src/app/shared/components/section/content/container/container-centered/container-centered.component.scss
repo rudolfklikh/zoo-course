@@ -1,0 +1,115 @@
+@use 'flex';
+@use 'variables' as vars;
+
+.content-container-centered {
+	@include flex.zoo-flex(column, center, center, var(--zoo-sp-32));
+
+	height: 100%;
+	width: 100%;
+
+	&__title {
+
+		&::ng-deep {
+			.text-highlight {
+				text-transform: capitalize;
+				color: var(--zoo-system-green-600);
+			}
+		}
+	}
+
+
+	&__wrapper {
+		height: 100%;
+
+		@include flex.zoo-flex(column, center, flex-start, var(--zoo-sp-64));
+
+		&--image {
+			@include vars.m() {
+				@include flex.zoo-flex(row, space-between, flex-start, var(--zoo-sp-64));
+			}
+		}
+	}
+
+	&__text {
+		@include flex.zoo-flex(column, flex-start, flex-start, var(--zoo-sp-24));
+	}
+
+	&__list {
+		& li {
+			@include flex.zoo-flex(row, flex-start, center, var(--zoo-sp-12));
+
+			list-style-type: none;
+			font-weight: 500;
+			margin-bottom: var(--zoo-sp-16);
+
+			&::before {
+				@include flex.zoo-flex(row, center, center);
+
+				content: "\2713";
+				height: 35px;
+				width: 35px;
+				color: var(--zoo-system-green-600);
+				border: 2px solid var(--zoo-system-green-600);
+				border-radius: 50%;
+			}
+		}
+	}
+
+	&__buttons {
+		@include flex.zoo-flex(row, center, center, var(--zoo-sp-16), wrap);
+
+		& button {
+			color: var(--zoo-gray-min);
+			background-color: var(--zoo-system-green-950);
+			box-shadow: var(--shadow-default-1);
+			border: none;
+			transition: var(--zoo-default-transition);
+
+			&:hover {
+				opacity: 0.9;
+				transform: translateY(-2px);
+			}
+		}
+
+	}
+
+	&__image {
+		position: relative;
+		display: none;
+
+		$borderWidth: 3rem;
+
+		height: 100%;
+		width: 100%;
+
+		@include vars.m() {
+			@include flex.zoo-flex(row, space-between, flex-start, var(--zoo-sp-64));
+		}
+
+		&::before {
+			position: absolute;
+			content: "";
+			top: 0;
+			left: 0;
+			right: $borderWidth;
+			bottom: $borderWidth;
+			border: 5px solid var(--zoo-system-green-600);
+		}
+
+		& img {
+			position: absolute;
+			top: $borderWidth;
+			left: $borderWidth;
+			width: calc(100% - $borderWidth);
+			height: calc(100% - $borderWidth);
+			object-fit: cover;
+			z-index: 1;
+		}
+	}
+
+
+	&--background {
+		background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), var(--background-image) center center no-repeat;
+		background-size: cover;
+	}
+}
