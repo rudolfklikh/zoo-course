@@ -2,13 +2,14 @@ import { CommonModule } from '@angular/common';
 import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, inject, input, Renderer2, RendererStyleFlags2, viewChild } from '@angular/core';
 import { EZooSectionContentType, IZooSectionBase } from '../../interfaces';
 import { ZooCarouselComponent, ZooContainerComponent } from './content';
+import { ZooContainerCenteredComponent } from './content/container/container-centered/container-centered.component';
 
 @Component({
 	selector: 'zoo-section',
 	templateUrl: './section.component.html',
 	styleUrls: ['./section.component.scss'],
 	standalone: true,
-	imports: [CommonModule, ZooContainerComponent, ZooCarouselComponent],
+	imports: [CommonModule, ZooContainerComponent, ZooCarouselComponent, ZooContainerCenteredComponent],
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ZooSectionComponent implements AfterViewInit {

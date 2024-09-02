@@ -1,0 +1,34 @@
+@if (metadata()) {
+<div #container class="container content-container-centered zoo-pd-t-64 zoo-pd-b-64"
+    [class.content-container-centered--background]="hasBackground()">
+    <div class="content-container-centered__wrapper" [class.content-container-centered__wrapper--image]="hasImage()">
+        <div class="content-container-centered__text">
+            <h3 class="content-container-centered__title zoo-heading-4"
+                [innerHTML]="metadata().title | zooHighlightKeyword: keyword | titlecase">
+            </h3>
+            <span [innerHTML]="metadata().subtitle | zooHighlightKeyword: keyword | titlecase"></span>
+
+            @if (hasList()) {
+            <ul class="content-container-centered__list">
+                @for (listItem of metadata().list; track $index) {
+                <li>{{ listItem | titlecase }}</li>
+                }
+            </ul>
+            }
+
+            <div class="content-container-centered__buttons">
+                @for (button of metadata().buttons; track $index) {
+                <button class="zoo-btn zoo-btn-sm">{{ button.title }}</button>
+                }
+            </div>
+        </div>
+
+        @if (hasImage()) {
+        <div class="content-container-centered__image">
+            <img [src]="metadata().image" [alt]="'Section title image'"
+            [title]="'Section title image'">
+        </div>
+        }
+    </div>
+</div>
+}
