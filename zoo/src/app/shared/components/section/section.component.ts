@@ -1,8 +1,10 @@
-import { CommonModule } from '@angular/common';
-import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, inject, input, Renderer2, RendererStyleFlags2, viewChild } from '@angular/core';
-import { EZooSectionContentType, IZooSectionBase } from '../../interfaces';
-import { ZooCarouselComponent, ZooContainerComponent } from './content';
-import { ZooContainerCenteredComponent } from './content/container/container-centered/container-centered.component';
+import { CommonModule } from "@angular/common";
+import { Component, ChangeDetectionStrategy, AfterViewInit, input, inject, Renderer2, viewChild, ElementRef, RendererStyleFlags2 } from "@angular/core";
+import { IZooSectionBase, EZooSectionContentType } from "../../interfaces";
+import { ZooCarouselComponent } from "../carousel/carousel.component";
+import { ZooContainerCenteredComponent } from "../container/container-centered/container-centered.component";
+import { ZooContainerComponent } from "../container/container/container.component";
+
 
 @Component({
 	selector: 'zoo-section',

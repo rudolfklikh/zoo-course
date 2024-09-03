@@ -1,7 +1,7 @@
-import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { IZooSectionContentContainer } from '../../../../../interfaces';
-import { ZooBaseContainerComponent } from '../base-container/base-conatiner.component';
+import { CommonModule } from "@angular/common";
+import { Component, ChangeDetectionStrategy } from "@angular/core";
+import { IZooSectionContentContainer } from "../../../interfaces";
+import { ZooBaseContainerComponent } from "../base-container/base-conatiner.component";
 
 @Component({
 	selector: 'zoo-container',

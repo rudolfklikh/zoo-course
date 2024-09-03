@@ -1,1 +1,10 @@
 @use 'flex';
+@use 'variables' as vars;
+
+.home {
+    @include flex.zoo-flex(column, initial, initial, var(--zoo-sp-12));
+
+    @include vars.m() {
+        gap: var(--zoo-sp-64);
+    }
+}

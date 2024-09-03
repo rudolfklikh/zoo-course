@@ -1,7 +1,8 @@
-import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import { IZooSectionContentCarousel } from '../../../../interfaces';
-import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+import { CommonModule } from "@angular/common";
+import { Component, ChangeDetectionStrategy, input } from "@angular/core";
+import { NgbCarouselModule } from "@ng-bootstrap/ng-bootstrap";
+import { IZooSectionContentCarousel } from "../../interfaces";
+
 
 @Component({
 	selector: 'zoo-carousel',
