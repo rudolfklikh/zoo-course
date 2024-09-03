@@ -1,0 +1,9 @@
+@use 'flex';
+@use 'variables' as vars;
+
+
+.card-wrapper {
+    @include flex.zoo-flex(column, center, center);
+
+    color: var(--zoo-gray-min);
+}

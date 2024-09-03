@@ -1,4 +1,5 @@
 import { IZooButton } from "./button.interface";
+import { IZooCard } from "./card.interface";
 
 export enum EZooSectionContentType {
     CONTAINER,
@@ -11,7 +12,7 @@ export interface IZooSectionContentBase {
 }
 
 export interface IZooSectionContainerBase {
-    title: string;
+    title?: string;
 	subtitle?: string;
 	description?: string;
 	buttons?: IZooButton[];
@@ -25,13 +26,15 @@ export interface IZooSectionContentCarousel extends IZooSectionContentBase {
 
 export interface IZooSectionContentContainer extends IZooSectionContentBase, IZooSectionContainerBase {
     type: EZooSectionContentType.CONTAINER,
+    cards?: IZooCard[],
 }
 
 export interface IZooSectionContentContainerCentered extends IZooSectionContentBase, IZooSectionContainerBase {
     type: EZooSectionContentType.CONTAINER_CENTERED,
 
-    list?: string[]
+    list?: string[];
     image?: string;
+    cards?: IZooCard[];
 }
 
 export type IZooSectionContent = IZooSectionContentCarousel | IZooSectionContentContainer | IZooSectionContentContainerCentered;

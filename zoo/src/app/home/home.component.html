@@ -1,5 +1,5 @@
 <div class="home">
 	@for (section of content.sections; track $index) {
-		<zoo-section [metadata]="section"></zoo-section>
+		<zoo-section [class.zoo-pd-b-64]="$index === content.sections.length - 1" [metadata]="section"></zoo-section>
 	}
 </div>

@@ -1,5 +1,5 @@
-import { AfterViewInit, Component, computed, ElementRef, inject, input, Renderer2, RendererStyleFlags2, viewChild } from '@angular/core';
-import { IZooSectionContainerBase } from '../../../../../interfaces';
+import { Component, AfterViewInit, input, computed, inject, Renderer2, viewChild, ElementRef, RendererStyleFlags2 } from "@angular/core";
+import { IZooSectionContainerBase } from "../../../interfaces";
 
 @Component({
 	selector: 'zoo-base-container',
@@ -20,7 +20,6 @@ export abstract class ZooBaseContainerComponent<T extends IZooSectionContainerBa
 
 
 	private setStyle(): void {
-		console.log(this.hasBackground());
 		if (this.hasBackground()) {
 			const { background } = this.metadata();
 			this._renderer.setStyle(this._container().nativeElement, '--background-image', `url(${background})`, RendererStyleFlags2.DashCase);

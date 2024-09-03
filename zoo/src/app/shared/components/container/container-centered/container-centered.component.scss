@@ -20,8 +20,9 @@
 
 	&__wrapper {
 		height: 100%;
+		width: 100%;
 
-		@include flex.zoo-flex(column, center, flex-start, var(--zoo-sp-64));
+		@include flex.zoo-flex(column, center, flex-start);
 
 		&--image {
 			@include vars.m() {
@@ -31,6 +32,8 @@
 	}
 
 	&__text {
+		width: 100%;
+
 		@include flex.zoo-flex(column, flex-start, flex-start, var(--zoo-sp-24));
 	}
 
@@ -53,6 +56,11 @@
 				border-radius: 50%;
 			}
 		}
+	}
+
+	&__cards {
+		width: 100%;
+		@include flex.zoo-flex(row, space-around, center, var(--zoo-sp-12), wrap);
 	}
 
 	&__buttons {

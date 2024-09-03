@@ -38,10 +38,45 @@ export const HOME_CONTENT: IHomeContent = {
         {
           type: EZooSectionContentType.CONTAINER_CENTERED,
           title: 'why you should visit zoofari park!',
-      	  subtitle: 'Stet no et lorem dolor et diam, amet duo ut dolore vero eos. No stet est diam rebum amet diam ipsum. Clita clita labore, dolor duo nonumy clita sit at, sed sit sanctus dolor eos.',
-          list: ['free car parking', 'natural environment', 'professional guide & security', 'world best animals'],
-          buttons: [  { title: 'Read more', url: '' }],
+          subtitle:
+            'Stet no et lorem dolor et diam, amet duo ut dolore vero eos. No stet est diam rebum amet diam ipsum. Clita clita labore, dolor duo nonumy clita sit at, sed sit sanctus dolor eos.',
+          list: [
+            'free car parking',
+            'natural environment',
+            'professional guide & security',
+            'world best animals',
+          ],
+          buttons: [{ title: 'Read more', url: '' }],
           image: '/assets/about.jpg',
+        },
+      ],
+    },
+    {
+      id: 'section#3',
+      order: 2,
+      height: 400,
+      content: [
+        {
+          type: EZooSectionContentType.CONTAINER_CENTERED,
+          cards: [
+            {
+              title: 'total animal',
+              totalCount: 12345
+            },
+            {
+              title: 'daily visitors',
+              totalCount: 12345
+            },
+            {
+              title: 'total membership',
+              totalCount: 12345
+            },
+            {
+              title: 'save wild life',
+              totalCount: 12345
+            },
+          ],
+          background: '/assets/bg-1.jpg',
         },
       ],
     },

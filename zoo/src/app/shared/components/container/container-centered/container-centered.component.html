@@ -1,5 +1,5 @@
 @if (metadata()) {
-<div #container class="container content-container-centered zoo-pd-t-64 zoo-pd-b-64"
+<div #container class="container content-container-centered"
     [class.content-container-centered--background]="hasBackground()">
     <div class="content-container-centered__wrapper" [class.content-container-centered__wrapper--image]="hasImage()">
         <div class="content-container-centered__text">
@@ -15,7 +15,13 @@
                 }
             </ul>
             }
-
+            @if (hasCards()) {
+                <div class="content-container-centered__cards">
+                    @for (card of metadata().cards; track $index) {
+                        <zoo-card [metadata]="card"></zoo-card>
+                    }
+                </div>
+            }
             <div class="content-container-centered__buttons">
                 @for (button of metadata().buttons; track $index) {
                 <button class="zoo-btn zoo-btn-sm">{{ button.title }}</button>
