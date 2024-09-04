@@ -54,29 +54,108 @@ export const HOME_CONTENT: IHomeContent = {
     {
       id: 'section#3',
       order: 2,
-      height: 400,
       content: [
         {
           type: EZooSectionContentType.CONTAINER_CENTERED,
           cards: [
             {
               title: 'total animal',
-              totalCount: 12345
+              aligning: 'center',
+              textAligning: 'center',
+              subTitle: '12345',
+              icon: 'heart',
             },
             {
               title: 'daily visitors',
-              totalCount: 12345
+              aligning: 'center',
+              textAligning: 'center',
+              subTitle: '12345',
+              icon: 'heart',
             },
             {
               title: 'total membership',
-              totalCount: 12345
+              aligning: 'center',
+              textAligning: 'center',
+              subTitle: '12345',
+              icon: 'heart',
             },
             {
               title: 'save wild life',
-              totalCount: 12345
+              aligning: 'center',
+              textAligning: 'center',
+              subTitle: '12345',
+              icon: 'heart',
             },
           ],
           background: '/assets/bg-1.jpg',
+        },
+      ],
+    },
+    {
+      id: 'section#4',
+      order: 3,
+      content: [
+        {
+          type: EZooSectionContentType.CONTAINER_CENTERED,
+          title: 'special services for zoofari visitors',
+          cards: [
+            {
+              title: 'Car Parking',
+              aligning: 'flex-start',
+              textAligning: 'left',
+              subTitle: 'Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.',
+              icon: 'heart',
+            },
+            {
+              title: 'Animal Photos',
+              aligning: 'flex-start',
+              textAligning: 'left',
+              subTitle: 'Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.',
+              icon: 'heart',
+            },
+            {
+              title: 'Guide Services',
+              aligning: 'flex-start',
+              textAligning: 'left',
+              subTitle: 'Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.',
+              icon: 'heart',
+            },
+            {
+              title: 'Food & Beverages',
+              aligning: 'flex-start',
+              textAligning: 'left',
+              subTitle: 'Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.',
+              icon: 'heart',
+            },
+            {
+              title: 'Zoo Shopping',
+              aligning: 'flex-start',
+              textAligning: 'left',
+              subTitle: 'Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.',
+              icon: 'heart',
+            },
+            {
+              title: 'Free Hi Speed Wi-Fi',
+              aligning: 'flex-start',
+              textAligning: 'left',
+              subTitle: 'Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.',
+              icon: 'heart',
+            },
+            {
+              title: 'Play Ground',
+              aligning: 'flex-start',
+              textAligning: 'left',
+              subTitle: 'Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.',
+              icon: 'heart',
+            },
+            {
+              title: 'Rest House',
+              aligning: 'flex-start',
+              textAligning: 'left',
+              subTitle: 'Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.',
+              icon: 'heart',
+            },
+          ],
         },
       ],
     },

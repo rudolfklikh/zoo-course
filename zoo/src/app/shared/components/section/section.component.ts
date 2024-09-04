@@ -28,7 +28,14 @@ export class ZooSectionComponent implements AfterViewInit {
 
 
 	private setStyle(): void {
-		this._renderer.setStyle(this._section().nativeElement, '--section-height', `${this.metadata().height}px`, RendererStyleFlags2.DashCase);
-		this._renderer.setStyle(this._section().nativeElement, '--section-media-height', `${Math.round(this.metadata().height / this.metadata().content.length)}px`, RendererStyleFlags2.DashCase);
+		const { height } = this.metadata();
+
+		if (height) {
+			this._renderer.setStyle(this._section().nativeElement, '--section-height', `${height}px`, RendererStyleFlags2.DashCase);
+			this._renderer.setStyle(this._section().nativeElement, '--section-media-height', `${Math.round((this.metadata().height as number) / this.metadata().content.length)}px`, RendererStyleFlags2.DashCase);
+		} else {
+			this._renderer.setStyle(this._section().nativeElement, '--section-height', 'auto', RendererStyleFlags2.DashCase);
+			this._renderer.setStyle(this._section().nativeElement, '--section-media-height', 'auto', RendererStyleFlags2.DashCase);
+		}
 	}
 }

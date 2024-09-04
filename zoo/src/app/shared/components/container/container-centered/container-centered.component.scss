@@ -8,6 +8,14 @@
 	width: 100%;
 
 	&__title {
+		width: 100%;
+		font-size: var(--zoo-heading-5);
+		text-align: center;
+
+		@include vars.s() {
+			font-size: var(--zoo-heading-4);
+			text-align: left;
+		}
 
 		&::ng-deep {
 			.text-highlight {
@@ -60,7 +68,7 @@
 
 	&__cards {
 		width: 100%;
-		@include flex.zoo-flex(row, space-around, center, var(--zoo-sp-12), wrap);
+		@include flex.zoo-flex(row, space-around, center, var(--zoo-sp-24), wrap);
 	}
 
 	&__buttons {
