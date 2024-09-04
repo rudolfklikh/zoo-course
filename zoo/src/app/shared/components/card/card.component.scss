@@ -2,8 +2,50 @@
 @use 'variables' as vars;
 
 
-.card-wrapper {
-    @include flex.zoo-flex(column, center, center);
+:host {
+    flex: 48%;
 
-    color: var(--zoo-gray-min);
+    @include vars.s() {
+        flex: var(--flex-basis);
+    }
+}
+
+.card-wrapper {
+    @include flex.zoo-flex(column, center, center, var(--zoo-sp-12));
+
+    color: var(--zoo-gray-max);
+    box-shadow: var(--shadow-default-1);
+    padding: var(--zoo-sp-24);
+    transition: var(--zoo-default-transition);
+    border-radius: var(--zoo-sp-12);
+
+    @include vars.s() {
+        @include flex.zoo-flex(column, center, var(--align-items), var(--zoo-sp-12));
+    }
+
+    &:hover {
+        transform: translateY(-4px);
+    }
+
+    &--background {
+        box-shadow: none;
+        border-radius: 0;
+        color: var(--zoo-gray-min);
+        padding: 0;
+
+        &:hover {
+            transform: translateY(0px);
+        }
+    }
+
+    &__subtitle {
+        text-align: center;
+        font-size: var(--zoo-body-3);
+        width: 70%;
+
+        @include vars.s() {            
+            width: 100%;
+            text-align: var(--text-align);
+        }
+    }
 }

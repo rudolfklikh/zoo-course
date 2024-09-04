@@ -1,5 +1,8 @@
-<div class="card-wrapper">
-    <zoo-icon class="zoo-mg-b-12" [name]="'heart'" [fill]="'var(--zoo-gray-min)'"></zoo-icon>
-    <span class="zoo-heading-b-4">{{ metadata().totalCount }}</span>
+<div #card class="card-wrapper" [class.card-wrapper--background]="background()">
+    @if (hasIcon()) {
+        <zoo-icon class="zoo-mg-b-12" [name]="metadata().icon || ''" [fill]="'var(--zoo-system-green-700)'"></zoo-icon>
+    }
+
     <h6>{{ metadata().title | titlecase }}</h6>
+    <span class="card-wrapper__subtitle">{{ metadata().subTitle | titlecase }}</span>
 </div>

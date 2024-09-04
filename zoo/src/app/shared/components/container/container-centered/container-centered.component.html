@@ -18,7 +18,7 @@
             @if (hasCards()) {
                 <div class="content-container-centered__cards">
                     @for (card of metadata().cards; track $index) {
-                        <zoo-card [metadata]="card"></zoo-card>
+                        <zoo-card [metadata]="card" [length]="metadata().cards?.length || 0" [background]="hasBackground()"></zoo-card>
                     }
                 </div>
             }

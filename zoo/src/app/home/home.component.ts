@@ -12,8 +12,4 @@ import { HOME_CONTENT } from './home.model';
 })
 export class HomeComponent {
   public readonly content = HOME_CONTENT;
-
-  // @TODO ADD STORE FOR THE CONTENT
-  // @TODO Add sorting to the sections by order
-  // @TODO onClick button function inside section component
 }

@@ -6,6 +6,15 @@
 .section {
 	height: var(--section-height);
 
+	&__title {
+		width: 100%;
+		text-align: center;
+
+		@include vars.s {
+			text-align: left;
+		}
+	}
+
 	&__content {
 		display: block;		
 		height: 100%;
