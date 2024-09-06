@@ -159,5 +159,74 @@ export const HOME_CONTENT: IHomeContent = {
         },
       ],
     },
+    {
+      id: 'section#5',
+      order: 4,
+      content: [
+        {
+          type: EZooSectionContentType.GALLERY_VIEW,
+          title: 'let`s see our zoofari awsome animals',
+          rows: 3,
+          rowsMaxHeight: 250,
+          columns: 3,
+          images: [
+            {
+              imgSrc: '/assets/gallery/animal-1.jpg',
+              rowStart: 1,
+              rowEnd: 1,
+              columnStart: 1,
+              columnEnd: 1,
+              title: 'animal',
+              subTitle: 'elephant'
+            },
+            {
+              imgSrc: '/assets/gallery/animal-2.jpg',
+              rowStart: 1,
+              rowEnd: 2,
+              columnStart: 2,
+              columnEnd: 2,
+              title: 'animal',
+              subTitle: 'elephant'
+            },
+            {
+              imgSrc: '/assets/gallery/animal-3.jpg',
+              rowStart: 1,
+              rowEnd: 1,
+              columnStart: 3,
+              columnEnd: 3,
+              title: 'animal',
+              subTitle: 'elephant'
+            },
+            {
+              imgSrc: '/assets/gallery/animal-4.jpg',
+              rowStart: 2,
+              rowEnd: 3,
+              columnStart: 1,
+              columnEnd: 1,
+              title: 'animal',
+              subTitle: 'elephant'
+            },
+            {
+              imgSrc: '/assets/gallery/animal-5.jpg',
+              rowStart: 3,
+              rowEnd: 3,
+              columnStart: 2,
+              columnEnd: 2,
+              title: 'animal',
+              subTitle: 'elephant'
+            },
+            {
+              imgSrc: '/assets/gallery/animal-6.jpg',
+              rowStart: 2,
+              rowEnd: 3,
+              columnStart: 3,
+              columnEnd: 3,
+              title: 'animal',
+              subTitle: 'elephant'
+            }
+          ],
+        },
+      ],
+    },
   ],
 };

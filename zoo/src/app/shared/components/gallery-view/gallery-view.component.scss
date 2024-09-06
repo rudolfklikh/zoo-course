@@ -1,0 +1,109 @@
+@use 'flex';
+@use 'variables' as vars;
+
+
+:host {
+    height: 100%;
+}
+
+
+.gallery {
+    @include flex.zoo-flex(column, flex-start, center, var(--zoo-sp-24));
+
+    height: 100%;
+
+    &__title {
+		width: 100%;
+		font-size: var(--zoo-heading-5);
+		text-align: center;
+
+		@include vars.s() {
+			font-size: var(--zoo-heading-4);
+			text-align: left;
+		}
+
+		&::ng-deep {
+			.text-highlight {
+				text-transform: capitalize;
+				color: var(--zoo-system-green-600);
+			}
+		}
+	}
+
+    &__view {
+        @include flex.zoo-flex(column, flex-start, flex-start, var(--zoo-sp-12));
+        width: 100%;
+        flex: 1;
+        grid-template-rows: 1fr;
+        
+        @include vars.m() {
+            display: grid;
+            grid-template-rows: var(--template-rows);
+            grid-template-columns: var(--template-columns);
+            gap: var(--zoo-sp-12);
+		}
+
+
+        &__image {
+            width: 100%;
+            transition: var(--zoo-default-transition);
+            position: relative;
+            cursor: pointer;
+
+            &--hover {
+                @include flex.zoo-flex(column, flex-end, flex-start, var(--zoo-sp-6));
+
+                position: absolute;
+                top: 0;
+                opacity: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: var(--zoo-sp-12);
+                background: var(--zoo-gray-950);
+                transition: var(--zoo-default-transition);
+                color: var(--zoo-gray-min);
+            }
+
+            &__text {
+                display: none;
+                position: absolute;
+                bottom: -50px;
+                opacity: 0;
+                transition: var(--zoo-default-transition);
+                padding: var(--zoo-sp-24);
+                animation: floatText 0.3s ease-in-out forwards;
+            }
+
+            & img {
+                width: 100%;
+                object-fit: cover;
+                border-radius: var(--zoo-sp-12);
+            }
+
+
+			&:hover {
+                transform: scale(1.12);
+                z-index: 1;
+
+                .gallery__view__image--hover {
+                    opacity: 0.7;
+                }
+
+                .gallery__view__image__text {
+                    @include flex.zoo-flex(column, flex-start, flex-start, var(--zoo-sp-6));
+                }
+			}
+        }
+    }
+}
+
+@keyframes floatText {
+    0% {
+      bottom: -50px;
+      opacity: 0;
+    }
+    100% {
+      bottom: 0;
+      opacity: 1;
+    }
+  }

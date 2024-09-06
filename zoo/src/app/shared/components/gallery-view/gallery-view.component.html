@@ -1,0 +1,18 @@
+<div class="gallery container">
+	<h3 class="gallery__title zoo-heading-4"
+		[innerHTML]="metadata().title | zooHighlightKeyword: keyword | titlecase">
+	</h3>
+	<div #gallery class="gallery__view">
+		@for (item of metadata().images; track $index) {
+		<div class="gallery__view__image" [ngStyle]='getImagePosition(item)'>
+			<div class="gallery__view__image--hover">
+				<div class="gallery__view__image__text">
+					<span class="zoo-body-b-2">{{ item.title | titlecase }}</span>
+					<span class="zoo-body-b-2">{{ item.subTitle | titlecase }}</span>
+				</div>
+			</div>
+			<img [src]="item.imgSrc" alt="image" title="image">
+		</div>
+		}
+	</div>
+</div>
