@@ -11,6 +11,9 @@
                     @case (CONTENT_TYPE.CONTAINER_CENTERED) {
                         <zoo-container-centered [metadata]="content"></zoo-container-centered>
                     }
+                    @case (CONTENT_TYPE.GALLERY_VIEW) {
+                        <zoo-gallery-view [metadata]="content"></zoo-gallery-view>
+                    }
                     @default {
                         <zoo-container [metadata]="content"></zoo-container>
                     }

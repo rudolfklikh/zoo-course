@@ -1,9 +1,11 @@
 import { IZooButton } from "./button.interface";
 import { IZooCard } from "./card.interface";
+import { IZooGalleryImage } from "./gallery-image.interface";
 
 export enum EZooSectionContentType {
     CONTAINER,
     CONTAINER_CENTERED,
+    GALLERY_VIEW,
     CAROUSEL,
 }
 
@@ -37,4 +39,14 @@ export interface IZooSectionContentContainerCentered extends IZooSectionContentB
     cards?: IZooCard[];
 }
 
-export type IZooSectionContent = IZooSectionContentCarousel | IZooSectionContentContainer | IZooSectionContentContainerCentered;
+export interface IZooSectionContentGalleryView extends IZooSectionContentBase, IZooSectionContainerBase {
+    type: EZooSectionContentType.GALLERY_VIEW,
+
+    rows: number;
+    rowsMaxHeight: number;
+    columns: number;
+    images: IZooGalleryImage[]
+}
+
+
+export type IZooSectionContent = IZooSectionContentCarousel | IZooSectionContentContainer | IZooSectionContentContainerCentered | IZooSectionContentGalleryView;

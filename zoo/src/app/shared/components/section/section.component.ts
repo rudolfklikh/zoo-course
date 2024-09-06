@@ -4,6 +4,7 @@ import { IZooSectionBase, EZooSectionContentType } from "../../interfaces";
 import { ZooCarouselComponent } from "../carousel/carousel.component";
 import { ZooContainerCenteredComponent } from "../container/container-centered/container-centered.component";
 import { ZooContainerComponent } from "../container/container/container.component";
+import { ZooGalleryViewComponent } from "../gallery-view/gallery-view.component";
 
 
 @Component({
@@ -11,7 +12,7 @@ import { ZooContainerComponent } from "../container/container/container.componen
 	templateUrl: './section.component.html',
 	styleUrls: ['./section.component.scss'],
 	standalone: true,
-	imports: [CommonModule, ZooContainerComponent, ZooCarouselComponent, ZooContainerCenteredComponent],
+	imports: [CommonModule, ZooContainerComponent, ZooCarouselComponent, ZooContainerCenteredComponent, ZooGalleryViewComponent],
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ZooSectionComponent implements AfterViewInit {
