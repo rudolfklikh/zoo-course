@@ -15,6 +15,7 @@ import { ZooCardComponent } from "../../card/card.component";
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ZooContainerCenteredComponent extends ZooBaseContainerComponent<IZooSectionContentContainerCentered> {
+	// @todo: remove computed, its redundant
 	public hasImage = computed(() => !!this.metadata().image);
 	public hasList = computed(() => !!this.metadata().list?.length);
 	public hasCards = computed(() => !!this.metadata().cards?.length);

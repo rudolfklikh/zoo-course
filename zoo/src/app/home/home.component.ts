@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { ZooSectionComponent } from '../shared';
 import { HOME_CONTENT } from './home.model';
 
+// @todo: move standalone: true and imports to the down (for all components)
 @Component({
   selector: 'zoo-home',
   standalone: true,

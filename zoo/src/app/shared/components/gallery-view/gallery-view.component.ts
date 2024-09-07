@@ -17,6 +17,7 @@ export class ZooGalleryViewComponent {
 	public keyword = 'zoofari'
 
 	private readonly _renderer = inject(Renderer2);
+	// @todo: move above inject
 	private readonly _gallery = viewChild.required<ElementRef>('gallery');
 
 
@@ -29,6 +30,7 @@ export class ZooGalleryViewComponent {
 	}
 
 	private setStyle(): void {
+		// @todo: add prefix --gallery for variables
 		this._renderer.setStyle(this._gallery().nativeElement, '--template-rows', `repeat(${this.metadata().rows}, minmax(auto, ${this.metadata().rowsMaxHeight}px))`, RendererStyleFlags2.DashCase);
 		this._renderer.setStyle(this._gallery().nativeElement, '--template-columns',  `repeat(${this.metadata().columns}, minmax(200px, 1fr))`, RendererStyleFlags2.DashCase);
 	}

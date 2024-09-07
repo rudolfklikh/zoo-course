@@ -5,6 +5,7 @@
 	<div #gallery class="gallery__view">
 		@for (item of metadata().images; track $index) {
 		<div class="gallery__view__image" [ngStyle]='getImagePosition(item)'>
+			<!-- @todo: check if possible to reduce div count -->
 			<div class="gallery__view__image--hover">
 				<div class="gallery__view__image__text">
 					<span class="zoo-body-b-2">{{ item.title | titlecase }}</span>

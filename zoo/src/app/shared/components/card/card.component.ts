@@ -18,8 +18,10 @@ export class ZooCardComponent implements AfterViewInit {
 
 	private readonly _renderer = inject(Renderer2);
 	private readonly _viewRef = inject(ViewContainerRef);
+	// @todo move viewchild above injections
 	private readonly _card = viewChild.required<ElementRef>('card');
 
+	// @todo: redundant computed instance
 	public hasIcon = computed(() => !!this.metadata().icon);
 
 	ngAfterViewInit(): void {
@@ -30,6 +32,7 @@ export class ZooCardComponent implements AfterViewInit {
 	private setStyle(): void {
 		const flexBasis = this.length() > 4 ? (Math.round((100 /  this.length() || 1 )) - 2) * 2  : Math.round((100 /  this.length() || 1 )) - 2;
 
+		// @todo: use extra prefix for -- variables, like --card-flex-basis
 		this._renderer.setStyle(this._viewRef.element.nativeElement, '--flex-basis', `${flexBasis}%`, RendererStyleFlags2.DashCase);
 		this._renderer.setStyle(this._card().nativeElement, '--align-items', `${this.metadata().aligning}`, RendererStyleFlags2.DashCase);
 		this._renderer.setStyle(this._card().nativeElement, '--text-align', `${this.metadata().textAligning}`, RendererStyleFlags2.DashCase);

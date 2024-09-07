@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ZooAlertComponent, ZooFooterComponent, ZooHeaderComponent } from './shared';
 
-
+// @todo: upgrade to Angular 19 + add zoneless
 @Component({
   selector: 'zoo-root',
   standalone: true,

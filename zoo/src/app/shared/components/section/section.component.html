@@ -4,6 +4,7 @@
 
         <div class="section__content">
             @for (content of metadata().content; track $index) {
+                <!-- @todo: use *ngComponentOutlet -->
                 @switch (content.type) {
                     @case (CONTENT_TYPE.CAROUSEL) {
                         <zoo-carousel [metadata]="content"></zoo-carousel>

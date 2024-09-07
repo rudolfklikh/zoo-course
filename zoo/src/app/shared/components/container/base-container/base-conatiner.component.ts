@@ -8,7 +8,11 @@ import { IZooSectionContainerBase } from "../../../interfaces";
 })
 export abstract class ZooBaseContainerComponent<T extends IZooSectionContainerBase> implements AfterViewInit {
 	public readonly metadata = input.required<T>();
+
+	// @todo: redundant computed instance
 	public readonly hasBackground = computed(() => !!this.metadata().background);
+
+	// @todo: rename prop to highlightTitle
 	public readonly keyword = 'zoofari';
 	
 	private readonly _renderer = inject(Renderer2);
