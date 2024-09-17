@@ -1,5 +1,5 @@
 @if (metadata()) {
-	<div #container class="content-container" [class.content-container--background]="hasBackground()">
+	<div #container class="content-container" [class.content-container--background]="!!metadata().background">
         <h3 class="content-container__title zoo-heading-b-4">{{ metadata().title | titlecase }}</h3>
 
         <div class="content-container__buttons">

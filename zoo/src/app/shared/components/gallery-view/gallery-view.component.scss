@@ -38,8 +38,8 @@
         
         @include vars.m() {
             display: grid;
-            grid-template-rows: var(--template-rows);
-            grid-template-columns: var(--template-columns);
+            grid-template-rows: var(--gallery-template-rows);
+            grid-template-columns: var(--gallery-template-columns);
             gap: var(--zoo-sp-12);
 		}
 

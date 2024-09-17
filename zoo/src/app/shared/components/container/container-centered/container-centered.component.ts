@@ -10,13 +10,8 @@ import { ZooCardComponent } from "../../card/card.component";
 	selector: 'zoo-container-centered',
 	templateUrl: './container-centered.component.html',
 	styleUrls: ['./container-centered.component.scss'],
+	changeDetection: ChangeDetectionStrategy.OnPush,
 	standalone: true,
-	imports: [CommonModule, ZooHighlightKeywordPipe, ZooCardComponent],
-	changeDetection: ChangeDetectionStrategy.OnPush
+	imports: [CommonModule, ZooHighlightKeywordPipe, ZooCardComponent]
 })
-export class ZooContainerCenteredComponent extends ZooBaseContainerComponent<IZooSectionContentContainerCentered> {
-	// @todo: remove computed, its redundant
-	public hasImage = computed(() => !!this.metadata().image);
-	public hasList = computed(() => !!this.metadata().list?.length);
-	public hasCards = computed(() => !!this.metadata().cards?.length);
-}
+export class ZooContainerCenteredComponent extends ZooBaseContainerComponent<IZooSectionContentContainerCentered> {}

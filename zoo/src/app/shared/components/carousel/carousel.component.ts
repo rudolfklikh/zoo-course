@@ -8,9 +8,9 @@ import { IZooSectionContentCarousel } from "../../interfaces";
 	selector: 'zoo-carousel',
 	templateUrl: './carousel.component.html',
 	styleUrls: ['./carousel.component.scss'],
+	changeDetection: ChangeDetectionStrategy.OnPush,
 	standalone: true,
 	imports: [CommonModule, NgbCarouselModule],
-	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ZooCarouselComponent {
 	public readonly metadata = input.required<IZooSectionContentCarousel>();

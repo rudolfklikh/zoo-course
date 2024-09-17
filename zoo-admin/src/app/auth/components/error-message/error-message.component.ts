@@ -7,9 +7,9 @@ import { EZooErrorMessages, ZOO_ERROR_MESSAGES } from './error-message.model';
   selector: 'zoo-error-message',
   templateUrl: './error-message.component.html',
   styleUrl: './error-message.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ZooErrorMessageComponent {
   control = input.required<string[], AbstractControl>({

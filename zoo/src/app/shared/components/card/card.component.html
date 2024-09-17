@@ -1,5 +1,5 @@
 <div #card class="card-wrapper" [class.card-wrapper--background]="background()">
-    @if (hasIcon()) {
+    @if (metadata().icon) {
         <zoo-icon class="zoo-mg-b-12" [name]="metadata().icon || ''" [fill]="'var(--zoo-system-green-700)'"></zoo-icon>
     }
 
