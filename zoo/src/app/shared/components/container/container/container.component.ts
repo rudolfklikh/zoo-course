@@ -7,9 +7,9 @@ import { ZooBaseContainerComponent } from "../base-container/base-conatiner.comp
 	selector: 'zoo-container',
 	templateUrl: './container.component.html',
 	styleUrls: ['./container.component.scss'],
+	changeDetection: ChangeDetectionStrategy.OnPush,
 	standalone: true,
-	imports: [CommonModule],
-	changeDetection: ChangeDetectionStrategy.OnPush
+	imports: [CommonModule]
 })
 export class ZooContainerComponent extends ZooBaseContainerComponent<IZooSectionContentContainer> {
 }

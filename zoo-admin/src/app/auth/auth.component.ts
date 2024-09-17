@@ -16,11 +16,11 @@ import { ZooAlertService } from '../shared';
 
 @Component({
   selector: 'zoo-auth',
-  standalone: true,
-  imports: [CommonModule, SignUpComponent, SignInComponent],
   templateUrl: './auth.component.html',
   styleUrl: './auth.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [CommonModule, SignUpComponent, SignInComponent],
 })
 export class AuthComponent {
   protected authContainer = viewChild.required<ElementRef<HTMLDivElement>>('auth');

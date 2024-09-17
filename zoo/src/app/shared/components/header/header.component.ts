@@ -10,12 +10,12 @@ import { headShake, heartBeat } from 'ng-animate';
 	selector: 'zoo-header',
 	templateUrl: './header.component.html',
 	styleUrls: ['./header.component.scss'],
-	standalone: true,
 	animations: [
 		ZooListItemsAnimation,
 		trigger('headShake', [transition('* => *', useAnimation(headShake))]),
 		trigger('heartBeat', [transition('* => *', useAnimation(heartBeat))])
 	],
+	standalone: true,
 	imports: [CommonModule, RouterModule]
 })
 export class ZooHeaderComponent {

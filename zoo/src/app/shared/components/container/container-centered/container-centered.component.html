@@ -1,24 +1,24 @@
 @if (metadata()) {
 <div #container class="container content-container-centered"
-    [class.content-container-centered--background]="hasBackground()">
-    <div class="content-container-centered__wrapper" [class.content-container-centered__wrapper--image]="hasImage()">
+    [class.content-container-centered--background]="!!metadata().background">
+    <div class="content-container-centered__wrapper" [class.content-container-centered__wrapper--image]="!!metadata().image">
         <div class="content-container-centered__text">
             <h3 class="content-container-centered__title zoo-heading-4"
-                [innerHTML]="metadata().title | zooHighlightKeyword: keyword | titlecase">
+                [innerHTML]="metadata().title | zooHighlightKeyword: highlightTitle | titlecase">
             </h3>
-            <span [innerHTML]="metadata().subtitle | zooHighlightKeyword: keyword | titlecase"></span>
+            <span [innerHTML]="metadata().subtitle | zooHighlightKeyword: highlightTitle | titlecase"></span>
 
-            @if (hasList()) {
+            @if (!!this.metadata().list?.length) {
             <ul class="content-container-centered__list">
                 @for (listItem of metadata().list; track $index) {
                 <li>{{ listItem | titlecase }}</li>
                 }
             </ul>
             }
-            @if (hasCards()) {
+            @if (!!this.metadata().cards?.length) {
                 <div class="content-container-centered__cards">
                     @for (card of metadata().cards; track $index) {
-                        <zoo-card [metadata]="card" [length]="metadata().cards?.length || 0" [background]="hasBackground()"></zoo-card>
+                        <zoo-card [metadata]="card" [length]="metadata().cards?.length || 0" [background]="!!metadata().background"></zoo-card>
                     }
                 </div>
             }
@@ -29,7 +29,7 @@
             </div>
         </div>
 
-        @if (hasImage()) {
+        @if (metadata().image) {
         <div class="content-container-centered__image">
             <img [src]="metadata().image" [alt]="'Section title image'"
             [title]="'Section title image'">

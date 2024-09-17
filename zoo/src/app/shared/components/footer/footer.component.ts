@@ -8,9 +8,9 @@ import { ZooIconComponent } from '../icon/icon.component';
 	selector: 'zoo-footer',
 	templateUrl: './footer.component.html',
 	styleUrls: ['./footer.component.scss'],
-	imports: [CommonModule, RouterModule, ZooIconComponent],
-	standalone: true,
 	changeDetection: ChangeDetectionStrategy.OnPush,
+	standalone: true,
+	imports: [CommonModule, RouterModule, ZooIconComponent],
 })
 export class ZooFooterComponent {
 	private _router: Router = inject(Router);
